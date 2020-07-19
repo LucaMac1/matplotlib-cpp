@@ -27,7 +27,7 @@ add_example(fill)
 add_example(imshow)
 add_example(legend)
 add_example(loglog)
-# add_example(minimal)
+add_example(minimal)
 add_example(modern)
 # add_example(nonblock) # it's working in non-blocking mode
 add_example(quiver)

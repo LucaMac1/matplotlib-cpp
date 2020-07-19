@@ -8,5 +8,6 @@ int main() {
   // note, that plot({..}, {..}) is not supported due to the ambiguous cast
   // of {..} to either std::string or std::vector
   plt::plot({1, 3, 2, 4});
-  plt::savefig("minimal.pdf");
+  plt::show();
+  plt::savefig("./minimal.png");
 }
