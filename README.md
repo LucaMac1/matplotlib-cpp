@@ -132,7 +132,7 @@ int main() {
 
 When working with vector fields, you might be interested in quiver plots:
 ```cpp
-#include "../matplotlibcpp.h"
+#include "matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;
 
@@ -161,7 +161,7 @@ int main()
 
 When working with 3d functions, you might be interested in 3d plots:
 ```cpp
-#include "../matplotlibcpp.h"
+#include "matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;
 
