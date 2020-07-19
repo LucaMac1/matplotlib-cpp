@@ -56,7 +56,7 @@ int main() {
       const unsigned n = 100;  // resolution of hypot function
       Eigen::MatrixXd X(n,n), Y(n,n), Z(n,n);
       get_data(X, Y, Z);
-      plt::plot_surface(X, Y,   Z);
+      plt::plot_surface(X, Y, Z);
       plt::show();
     #endif
 }
