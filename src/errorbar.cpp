@@ -1,5 +1,5 @@
 #include <cmath>
-#include "../matplotlibcpp.h"
+#include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
 
 #ifdef WITH_EIGEN

@@ -1,5 +1,5 @@
 #define _USE_MATH_DEFINES
-#include "../matplotlibcpp.h"
+#include "matplotlibcpp.h"
 #include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
@@ -18,13 +18,13 @@ int main() {
   }
 
   // Plot line from given x and y data. Color is selected automatically.
-  plt::semilogy(x, y);
+  plt::semilogx(x, y);
 
   // Plot a red dashed line from given x and y data.
-  plt::semilogy(x, w, {{"c", "r"}, {"ls", "--"}});
+  plt::semilogx(x, w, "r--");
 
   // Plot a line whose name will show up as "log(x)" in the legend.
-  plt::semilogy(x, z, "g:", {{"label", "$x^3$"}});
+  plt::semilogx(x, z, "g:", {{"label", "$x^3$"}});
 
   // Add graph title
   plt::title("Sample figure");

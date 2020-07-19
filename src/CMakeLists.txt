@@ -3,13 +3,15 @@ function(add_example basename)
   set(CMAKE_CXX_STANDARD 17)
 
   # add WITH_EIGEN, if specified
-  if(WITH_EIGEN)
-    add_definitions("-DWITH_EIGEN")
-  endif()
+  #if(WITH_EIGEN)
+  #  add_definitions("-DWITH_EIGEN")
+  #endif()
 
   # add the exectuable and link it to the Python libs
-  add_executable(${basename} ${basename}.cpp ../matplotlibcpp.h)
-  target_link_libraries(${basename} ${Python3_LIBRARIES})
+  # add_executable(${basename} ${basename}.cpp ../matplotlibcpp.h)
+  # target_link_libraries(${basename} ${Python3_LIBRARIES})
+  add_executable(${basename} ${basename}.cpp)
+  target_link_libraries(${basename} matplotlibcpplib)
 endfunction(add_example)
 
 # add the executables

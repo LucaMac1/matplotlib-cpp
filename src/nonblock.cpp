@@ -1,31 +1,32 @@
 #define _USE_MATH_DEFINES
-#include "../matplotlibcpp.h"
-#include <Eigen/Dense>
+#include "matplotlibcpp.h"
 #include <cmath>
-#include <iostream>
 
 namespace plt = matplotlibcpp;
+
+using namespace matplotlibcpp;
+using namespace std;
 
 int main() {
   // Prepare data.
   int n = 5000;
-  Eigen::VectorXd x(n), y(n), z(n), w = 2 * Eigen::VectorXd::Ones(n);
+  std::vector<double> x(n), y(n), z(n), w(n, 2);
   for (int i = 0; i < n; ++i) {
-    x(i) = i * i;
-    y(i) = sin(2 * M_PI * i / 360.0);
-    z(i) = log(i);
+    x.at(i) = i * i;
+    y.at(i) = sin(2 * M_PI * i / 360.0);
+    z.at(i) = log(i);
   }
 
-  // Set the size of output image = 1200x780 pixels
-  plt::figure_size(1200, 780);
-
   // Plot line from given x and y data. Color is selected automatically.
+  plt::subplot(2, 2, 1);
   plt::plot(x, y);
 
   // Plot a red dashed line from given x and y data.
+  plt::subplot(2, 2, 2);
   plt::plot(x, w, "r--");
 
   // Plot a line whose name will show up as "log(x)" in the legend.
+  plt::subplot(2, 2, 3);
   plt::plot(x, z, {{"label", "log(x)"}});
 
   // Set x-axis to interval [0,1000000]
@@ -33,13 +34,11 @@ int main() {
 
   // Add graph title
   plt::title("Sample figure");
-
   // Enable legend.
   plt::legend();
 
-  // save figure
-  const char *filename = "./eigen_basic.png";
-  std::cout << "Saving result to " << filename << std::endl;
+  plt::show(false);
 
-  plt::savefig(filename);
+  cout << "matplotlibcpp::show() is working in an non-blocking mode" << endl;
+  getchar();
 }

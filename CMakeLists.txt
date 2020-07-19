@@ -1,30 +1,18 @@
-project(MatplotlibC++)
-cmake_minimum_required(VERSION 2.8)
+# Disable in-source builds to prevent source tree corruption.
+if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+  message(FATAL_ERROR "
+   FATAL: In-source builds are not allowed.
+          You should create a separate directory for build files.")
+endif()
+
+set(PROJECT_NAME "MatplotlibCpp")
+set(AUTHOR "Luca Macchiusi <macchiusiluca@gmail.com>")
+set(PROJECT_URL "https://github.com/LucaMac1/matplotlib-cpp")
+
+cmake_minimum_required(VERSION 3.12...3.17)
+project(${PROJECT_NAME} VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
-find_package(Eigen3)
-
-if (${EIGEN3_FOUND})
-  include_directories(${EIGEN3_INCLUDE_DIR})
-else()
-  message(STATUS "Eigen3 not found")
-endif()
-
-find_package(Python3 COMPONENTS Interpreter Development)
-if (${Python3_FOUND})
-  include_directories(${Python3_INCLUDE_DIRS})
-else()
-  message(FATAL_ERROR "Python3 not found, please install it.")
-endif()
-
-find_package(NumPy)
-if (${PYTHON_NUMPY_FOUND})
-  include_directories(${PYTHON_NUMPY_INCLUDE_DIR})
-else()
-  message(WARNING "Python3 NumPy not found, proceeding with -DWITHOUT_NUMPY."
-  " Some functions might not work.")
-  add_definitions(-DWITHOUT_NUMPY)
-endif()
-
-add_subdirectory(examples)
+add_subdirectory(include)
+add_subdirectory(src)

@@ -1,7 +1,7 @@
 #define __USE_MATH_DEFINES
 #include <cmath>
 #include <Eigen/Dense>
-#include "../matplotlibcpp.h"
+#include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
 
 void waves(const unsigned n) {
